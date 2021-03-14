@@ -1,0 +1,868 @@
+
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a175c99f98.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <link rel="stylesheet" type="text/css" href="toggle_switch.css">
+    <script src="toggle.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $(window).scroll(function () {
+
+                var height = $('header').height();
+                var scrollTop = $('window').scrollTop();
+
+                if (scrollTop >= (0.65 * height)) {
+                    $('nav').addClass('nav-white');
+                } else {
+                    $('nav').removeClass('nav-white');
+                }
+
+            });
+        });
+
+        function initial()
+        {
+            document.getElementById('light').style.background = 'black';
+            document.getElementById('dark').style.background = 'white';
+        }
+
+        function toggle_dark()
+        {
+            document.body.classList.add('dark_body');
+            document.body.classList.remove('light_body');
+            // var links = document.getElementsByTagName("a");
+            var jumbotrons = document.getElementsByClassName("darkjumbo");
+
+            for(var i=0; i<jumbotrons.length; i++)
+            {
+                jumbotrons[i].style.backgroundColor = 'rgb(19, 19, 19)';
+                jumbotrons[i].style.color = 'white';
+            }
+        }
+
+        function toggle_light()
+        {
+            document.body.classList.add('light_body');
+            document.body.classList.remove('dark_body');
+            // var links = document.getElementsByTagName("a");
+            var jumbotrons = document.getElementsByClassName("darkjumbo");
+
+            for(var i=0; i<jumbotrons.length; i++)
+            {
+                jumbotrons[i].style.backgroundColor = 'white';
+                jumbotrons[i].style.color = 'black';
+            }
+        }
+        
+        var nav = document.getElementsByTagName('nav')[0];
+        window.onload = function () {
+            console.log(document.getElementById("icons"));
+            var f=1;
+        };
+
+
+        document.getElementById("onoffbg").onclick = () => {
+            if(f==1)
+            {
+                document.getElementById("onoff").classList.remove("off");
+                document.getElementById("onoff").classList.add("on");
+                document.getElementById("onoffbg").classList.add("onbg");
+                document.getElementById("onoffbg").classList.remove("offbg");
+                f=2;
+                // console.log(window.localStorage.getItem('state'));
+            }
+            else
+            {
+                document.getElementById("onoff").classList.remove("on");
+                document.getElementById("onoff").classList.add("off");
+                document.getElementById("onoffbg").classList.remove("onbg");
+                document.getElementById("onoffbg").classList.add("offbg");
+                f=1;
+                // window.localStorage.setItem('state', 1);
+            }
+        };
+
+        // var obj = document.getElementsByClassName("userinfo1")[0];
+        // obj.onmouseover = function () {
+        //     var f = 0;
+        //     users();
+        // };
+
+        // obj.onmouseout = function () {
+        //     usersoff();
+        // };
+
+        // var obj2 = document.getElementsByClassName("userinfo2")[0];
+        // var f=0;
+        // obj2.onmouseover = function () {
+        //     f=1;
+        //     users();
+        // };
+
+        // obj2.onmouseout = function () {
+        //     usersoff();
+        // };
+
+        // function users() {
+        //     var name = document.getElementsByClassName("accname")[f];
+        //     var user = document.getElementsByClassName("userinfo")[f];
+        //     name.style.animation = "right ease-in forwards 1s";
+        //     user.style.backgroundColor = "rgba(85, 212, 255, 0.6)";
+        //     user.style.transitionDuration = "1s";
+        // }
+
+        // function usersoff() {
+        //     var name = document.getElementsByClassName("accname")[f];
+        //     var user = document.getElementsByClassName("userinfo")[f];
+        //     name.style.animation = "right ease-in reverse 1s";
+        //     user.style.backgroundColor = "transparent";
+        //     user.style.transitionDuration = "1s";
+        // }
+
+        function showmenu() {
+            document.getElementById("icons2").classList.toggle("menuclass");
+        }
+    </script>
+
+
+    <style>
+        * {
+            font-family: verdana, sans-serif;
+        }
+
+        body {
+            margin: 0px;
+            /* width: 100%;
+            height: 200%; */
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+        }
+
+        .dark_body
+        {
+            color: white;
+            background: rgb(19, 19, 19);
+        }
+        .light_body
+        {
+            color: black;
+            background: white;
+        }
+
+        nav {
+            width: 100%;
+            padding: 5px 0px;
+            display: grid;
+            align-items: stretch;
+            grid-template-areas:
+                'logo logo logo home topic feedback about icons icons';
+            justify-content: space-evenly;
+            align-items: center;
+            column-gap: 8vw;
+            color: white;
+            box-shadow: 0px 1px 5px gray;
+            background-color: transparent;
+            background-color: rgba(255, 255, 255, .15);  
+            backdrop-filter: blur(5px);
+            position: fixed;
+            z-index: 1;
+        }
+        
+        .jumbotron > div .dark {
+            background-color: black;
+            color: white;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav i {
+            font-size: 0px;
+            text-align: center;
+            position: relative;
+        }
+
+        nav>img {
+            grid-area: logo;
+        }
+
+        nav.nav-white {
+            background-color: white;
+            transition: 1s ease;
+        }
+
+        #icons {
+            grid-area: icons;
+            background-color: transparent;
+            border-left: 2px solid lightgray;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #icons2 {
+            display: none;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            border-radius: 5px;
+            border-top: 5px solid rgb(47, 105, 124);
+            background-color: white;
+            box-shadow: 0px 2px 5px gray;
+            padding: 10px;
+            right: 0;
+            transform: translateY(10px);
+        }
+
+
+
+        #userinfo {
+            margin-left: 1vw;
+            display: flex;
+            /* background-color: rgba(85, 212, 255, 0.6); */
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+        }
+
+        #account {
+            position: relative;
+        }
+
+        #account i {
+            font-size: 30px;
+            /* margin-right: 10px; */
+        }
+
+        #accname {
+            margin: 0px;
+            font-size: 0px;
+            padding: 0px 10px;
+        }
+
+        @keyframes right {
+            0% {
+                font-size: initial;
+                transform: translateX(-90%);
+            }
+
+            100% {
+                font-size: initial;
+                transform: translateX(0%);
+            }
+        }
+
+        /*#account-dropdown
+    {
+        position: absolute;
+        padding: 0px 10px;
+        border-radius: 5px;
+        border-top: 5px solid rgb(47, 105, 124);
+        min-width: 100px;
+        text-align: center;
+        text-overflow: ellipsis;
+        background-color: white;
+        box-shadow: 0px 2px 5px gray;
+        display: none;
+    }
+    #account:hover #account-dropdown
+    {
+        display: block;
+    }*/
+        .navicon {
+            width: 20px;
+            padding: 5px;
+            height: 20px;
+            margin-right: 5px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .first1
+    {
+        position: relative;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background-color: white;
+        box-shadow: 0px 5px 15px gray;
+    }
+    .left1, .right1{
+        flex-basis: auto;
+    }
+    .left1
+    {
+        /* border: 1px black solid; */
+        opacity: 1;
+        /* width: 0%; */
+        position: relative;
+        width: 100%;
+        align-self: center;
+        padding: 15px;
+        /* animation: fadeleft 2s ease forwards;
+        animation-delay: 1.5s;  */
+    }
+    .right1
+    {
+        background-image: url("img/mass3.jpg");
+        background-size: 96% 100%;
+        background-repeat: no-repeat;
+        width: 50%;
+        height: auto;
+        margin-right: -1.45%;
+        
+        /* border: 1px black solid; */
+        opacity: 1;
+        position: relative;
+        flex-shrink: 1;
+    }
+
+        #light {
+            transform: scale(1.5);
+            background-color: black;
+            margin-right: 0px;
+        }
+
+        #dark {
+            transform: scale(1.5);
+            background-color: rgb(228, 228, 228);
+        }
+
+        .toggle {
+    height: 20px;
+    width: 50px;
+    border: 3px solid lightgray;
+    border-radius: 20px;
+}
+
+.control {
+    width: 40%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: grey;
+    cursor: pointer;
+}
+
+.on {
+    margin-left: 60%;
+    background-color: rgb(7, 46, 119);
+    transition-duration: 0.7s;
+}
+
+.onbg {
+    border-color: cornflowerblue;
+    background-color: lightblue;
+}
+
+.off {
+    margin-left: 0%;
+    background-color: grey;
+    transition-duration: 0.7s;
+}
+
+.offbg {
+    border-color: lightgray;
+    background-color: white;
+}
+
+        @media screen and (max-width: 1324px) {
+            #icons {
+                display: none;
+            }
+
+            nav i {
+                font-size: 25px;
+                grid-area: navicons;
+            }
+
+            nav {
+                grid-template-areas:
+                    'logo logo logo home topic feedback about navicons';
+            }
+
+            #icons2.menuclass {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                position: absolute;
+                border-radius: 5px;
+                border-top: 5px solid rgb(47, 105, 124);
+                background-color: white;
+                box-shadow: 0px 2px 5px rgb(146, 137, 137);
+                padding: 10px;
+                right: 0;
+                transform: translateY(10px);
+                /* display: flex; */
+            }
+
+            #account {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 824px) {
+            nav {
+                column-gap: 7vw;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            nav {
+                justify-content: stretch;
+                grid-template-areas:
+                    'logo logo logo navicons'
+                    'home topic feedback about';
+            }
+
+            nav a {
+                justify-self: center;
+            }
+
+            nav i {
+                padding-right: 8px;
+                font-size: 20px;
+                justify-self: right;
+            }
+
+            .navicon {
+                height: 15px;
+                width: 15px;
+            }
+
+            #account i {
+                font-size: 25px;
+            }
+
+            .toggle {
+                transform: scale(1.5);
+            }
+
+            nav>img {
+                /* justify-self: start; */
+                grid-column-start: 1;
+                grid-column-end: 5;
+                transform: scale(0.8);
+            }
+        }
+
+        @media screen and (max-width: 361px) {
+            nav {
+                grid-column-gap: 10%;
+            }
+
+            nav a {
+                font-size: 10px;
+            }
+
+            nav i {
+                font-size: 20px;
+            }
+
+            nav>img {
+                margin-left: -10%;
+                grid-column-start: 1;
+                grid-column-end: 5;
+                transform: scale(0.7);
+            }
+        }
+
+        /* ====================================main body========================================= */
+
+        header {
+            height: 60%;
+            clip-path: polygon(50% 0%, 100% 0, 100% 65%, 50% 100%, 0 65%, 0 0);
+            background: fixed no-repeat;
+            background-image: url('img/climate1.png'), url('img/greenclimate.jpg');
+            background-size: 50%, 50%;
+            background-color: black;
+            background-position-x: left, right;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #main {
+            height: 50%;
+            display: flex;
+            padding: 10px;
+        }
+
+        #left,
+        #right {
+            width: 50%;
+            margin: 10px;
+            text-decoration-color: aquamarine;
+        }
+
+        #whatis {
+            height: 60%;
+            color: white;
+            background: url("img/whatis2.gif") #6DB1AC no-repeat;
+            background-size: 50%;
+            /* background: linear-gradient(#052035,#677E91); */
+            margin: 5% 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        #whatis>h1 {
+            margin-right: 15%;
+        }
+
+        #bubbles {
+            display: flex;
+            justify-content: space-around;
+            width: 60%;
+        }
+
+        #bubbles>div {
+            width: 200px;
+            height: 200px;
+            margin-right: 0%;
+            border: 5px white solid;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #flashcards {
+            display: flex; 
+            flex-wrap: wrap;
+        }
+
+        #flashcards > div {
+            margin: 4 1px;
+        }
+
+        .darkjumbo {
+            background-color: white;
+            color: black;
+        }
+
+        .mainbody {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .first1 {
+            display: flex;
+            align-items: center;
+        }
+
+        p {
+            margin: 0 16px;
+            text-align: justify;
+        }
+        #heading {
+            z-index: 99;
+            width: 40%;
+            color: white;
+            height: 20%;
+            font-size: 50px;
+            background-color: rgba(255, 255, 255, .15);  
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+
+<body onload="initial()">
+    <nav>
+        <img src="img/logo.png" width="234.5" height="30">
+        <a style="grid-area: home;">Home</a>
+        <a style="grid-area: topic;">Topics</a>
+        <a style="grid-area: feedback;">Feedback</a>
+        <a style="grid-area: about;">About Us</a>
+        <i class="fas fa-ellipsis-v" id="menu" onclick="showmenu()">
+            <div id="icons2">
+                <!-- <div id="userinfo" class="userinfo2" onmouseover="users()" onmouseout="usersoff()">
+                    <div id="account" class="account">
+                        <i class="fas fa-user-circle" class="navicon" id="acclogo" onclick="show()"></i>
+                    </div>
+                    <p id="accname" class="accname">No account</p>
+                </div> -->
+                <img src="img/lightmode.png" class="navicon" id="light">
+                <div class="toggle" id="onoffbg">
+                    <div class="control" id="onoff" onclick="onoff()"></div>
+                </div>
+                <img src="img/darkmode.png" class="navicon" id="dark">
+            </div>
+        </i>
+        <div id="icons">
+            <img class="navicon" id="dark" src="img/darkmode.png" onclick="toggle_dark()">
+            <img class="navicon" id="light" src="img/lightmode.png" onclick="toggle_light()">
+        </div>
+    </nav>
+
+    <header>
+        <div id="heading">Signs of the Climate</div>
+    </header>
+    <br>
+
+    <h3 style="padding: 16px;">
+        There is a lot of buzz around climate change—let’s look at the facts to better understand one of the greatest
+        challenges of our time.
+    </h3>
+    <div class="jumbotron" id="flashcards">
+        <div class="card p-3 darkjumbo" style="width: 18rem;">
+            <b class="card-title">Fact 1</b>
+            <span class="card-text">The term global warming refers to the long-term warming of the planet. The term climate
+                change encompasses global warming, but refers to the broader range of changes that are happening to our
+                planet.
+                <br>Source: <a href="https://climate.nasa.gov/evidence/"> NASA</a> </span>
+            <br>
+        </div>
+
+        <div class="card p-3 darkjumbo" style="width: 18rem;">
+            <b class="card-title">Fact 2</b>
+            <span class="card-text">These broader climate changes include: rising sea levels, shrinking mountain glaciers, accelerating ice melt
+            in Greenland, Antarctica and the Arctic, and shifts in flower and plant blooming times.
+            <br>Source: <a href="https://climate.nasa.gov/evidence/">U.S. Global Change Research Program (USGCRP)</a></span>
+            <br>
+        </div>
+
+        <div class="card p-3 darkjumbo" style="width: 18rem;">
+            <b class="card-title">Fact 3</b>
+            <span class="card-text">Human activity, especially greenhouse gas emissions, is considered the dominant cause of temperature
+            increases.
+            <br>Source: <a href="https://nca2018.globalchange.gov/chapter/2/">BBC News</a></span>
+            <br>
+        </div>
+
+        <div class="card p-3 darkjumbo" style="width: 18rem;">
+            <b class="card-title">Fact 4</b>
+            <span class="card-text">The greenhouse effect refers to the way the Earth’s atmosphere and abs trapsorbs solar energy.
+            <br>Source: <a href="https://nca2018.globalchange.gov/chapter/2/">BBC News</a></span>
+        </div>
+
+        <div class="card p-3 darkjumbo" style="width: 18rem;">
+            <b class="card-title">Fact 5</b>
+            <span class="card-text">The Intergovernmental Panel on Climate Change was formed in 1988 to collect and assess evidence on climate
+            change. Since then, it has produced a series of alarming climate models. Under these models, most of the
+            planet’s ice cover would melt by the end of the century and trigger a cascade of irreversible consequences,
+            including flooding strong enough to engulf entire cities.
+            <br>Source:<a href="https://nca2018.globalchange.gov/chapter/2/">BBC News</a></span>
+        </div>
+
+        <div class="card p-3 darkjumbo" style="width: 18rem;">
+            <b class="card-title">Fact 6</b>
+            <span class="card-text">Paleoclimatology—or the study of changes in climate throughout Earth’s history—uses evidence found in tree
+            rings, ocean sediment, coral reefs, and layers of sedimentary rocks to determine that current warming is
+            occurring roughly 10 times faster than the post-ice age warming.
+            <br>Source: <a href="https://climate.nasa.gov/evidence/"> NASA</a></span>
+        </div>
+
+        <div class="card p-3 darkjumbo" style="width: 18rem;">
+            <b class="card-title">Fact 7</b>
+            <span class="card-text">By 2060, the cost of inaction on climate change is predicted to reach a staggering $44 trillion, with the
+            highest anticipated GDP losses in the Middle-East, Northern, and Sub-Saharan Africa, and South and Southeast
+            Asia.
+            <br>Sources: <a
+                href="https://cusdi.org/wp-content/uploads/2016/02/ENERGY-DARWINISM-II-Why-a-Low-Carbon-Future-Doesn%E2%80%99t-Have-to-Cost-the-Earth.-Citi-GPSI.pdf">CitiGPS</a>
+            + <a href="http://www.oecd.org/env/the-economic-consequences-of-climate-change-9789264235410-en.htm">The
+                Organisation for Economic Co-operation and Development</a></span>
+        </div>
+
+        <div class="card p-3 darkjumbo" style="width: 18rem;">
+            <b class="card-title">Fact 8</b>
+            <span class="card-text">In 2018, there were 14 extreme-weather events that resulted in more than $1 billion in damages.
+            <br>Source: <a
+                href="http://www.oecd.org/env/the-economic-consequences-of-climate-change-9789264235410-en.htm">UN
+                News</a></span>
+        </div>
+
+        <div class="card p-3 darkjumbo" style="width: 18rem;">
+            <b class="card-title">Fact 9</b>
+            <span class="card-text">The average number of people exposed to heatwaves has increased by approximately 125 million since the
+            beginning of the century.
+            <br>Source: <a href="http://www.oecd.org/env/the-economic-consequences-of-climate-change-9789264235410-en.htm">
+                UN News</a></span>
+        </div>
+
+        <div class="card p-3 darkjumbo" style="width: 18rem;">
+            <b class="card-title">Fact 10</b>
+            <span class="card-text">Community-led nonprofits working to fight climate change are underfunded.
+            <br>Source: <a href="https://www.globalgiving.org/learn/local-climate-change-solutions/">Learn Library</a></span>
+        </div>
+    </div>
+
+    <div id="whatis">
+        <h1 class=''>What is Climate Change?</h1>
+        <div id="bubbles">
+            <div>
+                <a href="#evidence" style="color: white;"><h2>Evidence</h2></a>
+            </div>
+            <div>
+                <a href="#causes" style="color: white;"><h2>Causes</h2></a>
+            </div>
+            <div>
+                <a href="#effects" style="color: white;"><h2>Effects</h2></a>
+            </div>
+            <div>
+                <a href="#solutions" style="color: white;"><h2>Solutions</h2></a>
+            </div>
+        </div>
+    </div>
+    <center>
+       
+       <div class="jumbotron mainbody">
+        <div class="right darkjumbo" id="evidence"><b><h3>Evidence</h3></b>
+        <br>
+        <div class="first1 darkjumbo">
+            <div class="left darkjumbo">
+        <p style="text-align: justify;">
+        Earth's climate has changed throughout history. Just in the last 650,000 years there have been seven cycles of
+        glacial advance and retreat, with the abrupt end of the last ice age about 11,700 years ago marking the
+        beginning of the modern climate era — and of human civilization. Most of these climate changes are attributed to
+        very small variations in Earth’s orbit that change the amount of solar energy our planet receives.
+
+        Scientific evidence for warming of the climate system is unequivocal.
+        - Intergovernmental Panel on Climate Change
+        The current warming trend is of particular significance because most of it is extremely likely (greater than 95%
+        probability) to be the result of human activity since the mid-20th century and proceeding at a rate that is
+        unprecedented over decades to millennia.1
+
+        Earth-orbiting satellites and other technological advances have enabled scientists to see the big picture,
+        collecting many different types of information about our planet and its climate on a global scale. This body of
+        data, collected over many years, reveals the signals of a changing climate.
+
+        The heat-trapping nature of carbon dioxide and other gases was demonstrated in the mid-19th century.2 Their
+        ability to affect the transfer of infrared energy through the atmosphere is the scientific basis of many
+        instruments flown by NASA. There is no question that increased levels of greenhouse gases must cause Earth to
+        warm in response.
+
+        Ice cores drawn from Greenland, Antarctica, and tropical mountain glaciers show that Earth’s climate responds to
+        changes in greenhouse gas levels. Ancient evidence can also be found in tree rings, ocean sediments, coral
+        reefs, and layers of sedimentary rocks. This ancient, or paleoclimate, evidence reveals that current warming is
+        occurring roughly ten times faster than the average rate of ice-age-recovery warming. Carbon dioxide from human
+        activity is increasing more than 250 times faster than it did from natural sources after the last Ice Age
+        </p>
+    </div>
+    <img src="img\effects.gif">
+    </div> 
+</div> 
+        <br>
+        <br>
+        <div class="right darkjumbo" id="causes"><b><h3>Causes</h3></b>
+        <br>
+        <div class="first1 darkjumbo">
+            <div class="left darkjumbo">
+                <p>
+        Scientists attribute the global warming trend observed since the mid-20th century to the human expansion of the
+        "greenhouse effect"1 — warming that results when the atmosphere traps heat radiating from Earth toward space.
+
+        Certain gases in the atmosphere block heat from escaping. Long-lived gases that remain semi-permanently in the
+        atmosphere and do not respond physically or chemically to changes in temperature are described as "forcing"
+        climate change. Gases, such as water vapor, which respond physically or chemically to changes in temperature are
+        seen as "feedbacks."
+
+        Water vapor. The most abundant greenhouse gas, but importantly, it acts as a feedback to the climate. Water
+        vapor increases as the Earth's atmosphere warms, but so does the possibility of clouds and precipitation, making
+        these some of the most important feedback mechanisms to the greenhouse effect.
+        Carbon dioxide (CO2). A minor but very important component of the atmosphere, carbon dioxide is released through
+        natural processes such as respiration and volcano eruptions and through human activities such as deforestation,
+        land use changes, and burning fossil fuels. Humans have increased atmospheric CO2 concentration by 47% since the
+        Industrial Revolution began. This is the most important long-lived "forcing" of climate change.
+        Methane. A hydrocarbon gas produced both through natural sources and human activities, including the
+        decomposition of wastes in landfills, agriculture, and especially rice cultivation, as well as ruminant
+        digestion and manure management associated with domestic livestock. On a molecule-for-molecule basis, methane is
+        a far more active greenhouse gas than carbon dioxide, but also one which is much less abundant in the
+        atmosphere.
+        Nitrous oxide. A powerful greenhouse gas produced by soil cultivation practices, especially the use of
+        commercial and organic fertilizers, fossil fuel combustion, nitric acid production, and biomass burning.
+        Chlorofluorocarbons (CFCs). Synthetic compounds entirely of industrial origin used in a number of applications,
+        but now largely regulated in production and release to the atmosphere by international agreement for their
+        ability to contribute to destruction of the ozone layer. They are also greenhouse gases</p></div>
+        <img src="img\causes.gif"> 
+        </div>
+        <br>
+        <br>
+        <div class="right darkjumbo" id="effects"><b><h3>Effects</h3></b>
+        <br>
+        <div class="first1 darkjumbo">
+            <div class="left darkjumbo">
+                <p>
+        Global climate change has already had observable effects on the environment. Glaciers have shrunk, ice on rivers
+        and lakes is breaking up earlier, plant and animal ranges have shifted and trees are flowering sooner.
+
+        Effects that scientists had predicted in the past would result from global climate change are now occurring:
+        loss of sea ice, accelerated sea level rise and longer, more intense heat waves.
+        Scientists have high confidence that global temperatures will continue to rise for decades to come, largely due
+        to greenhouse gases produced by human activities. The Intergovernmental Panel on Climate Change (IPCC), which
+        includes more than 1,300 scientists from the United States and other countries, forecasts a temperature rise of
+        2.5 to 10 degrees Fahrenheit over the next century.
+
+        According to the IPCC, the extent of climate change effects on individual regions will vary over time and with
+        the ability of different societal and environmental systems to mitigate or adapt to change.
+
+        The IPCC predicts that increases in global mean temperature of less than 1.8 to 5.4 degrees Fahrenheit (1 to 3
+        degrees Celsius) above 1990 levels will produce beneficial impacts in some regions and harmful ones in others.
+        Net annual costs will increase over time as global temperatures increase.
+
+        "Taken as a whole," the IPCC states, "the range of published evidence indicates that the net damage costs of
+        climate change are likely to be significant and to increase over time.</p></div>
+        <img src="img\polarbear.gif">
+    </div>
+    <br><br>
+    <div class="right darkjumbo" id="solutions"><b><h3>Solution</h3></b>
+        <br>
+        <div class="first1 darkjumbo">
+            <div class="left darkjumbo" ><p>
+        Climate change is an urgent problem that affects everything from human health and food security to immigration
+        patterns and water resources. The good news is that solutions to reduce the threat of climate change are within
+        reach. This series of four short courses focuses on the multidimensional aspects of the climate change problem
+        and presents a set of solutions, from technological innovation and ecosystem management to market mechanisms and
+        behavior change, designed to disrupt the effects of climate change. Learn how everyone, including individuals,
+        communities, businesses, and religious leaders, can take action and bend the curve of climate change towards a
+        more sustainable future.
+        <br>
+        <br></p>
+        </div><img src="img\solns.jpg" height="300"></div>
+    </div>
+    <br><br>
+    <div><div>
+        <div class="right darkjumbo"><b><h3>How much will temperatures rise in future?</h3></b></div>
+        <p>The change in the global surface temperature between 1850 and the end of the 21st Century is likely to exceed 1.5C, most simulations suggest.
+        The WMO says that if the current warming trend continues, temperatures could rise 3-5C by the end of this century.
+        Temperature rises of 2C had long been regarded as the gateway to dangerous warming. More recently, scientists and policymakers have argued that limiting temperature rises to 1.5C is safer.
+    </p>
+    </div>
+    <iframe width="600" height="420" src="https://www.bbc.com/news/av-embeds/24021772/vpid/p06nb3bt"></iframe>
+</div>
+<br><br>
+<div><div></div>
+    <div class="right darkjumbo"><b><h3>How will climate change affect us?</h3></b></div>
+    There is uncertainty about how great the impact of a changing climate will be.
+    It could cause fresh water shortages, dramatically alter our ability to produce food, and increase the number of deaths from floods, storms and heatwaves. This is because climate change is expected to increase the frequency of extreme weather events - though linking any single event to global warming is complicated.
+</div>
+    <iframe width="600" height="700" frameborder="0" src="https://www.bbc.com/news/av-embeds/24021772/vpid/p035f41q"></iframe>
+</div>
+</center>
+    <footer>
+        
+    </footer>
+</body>
+
+</html>
