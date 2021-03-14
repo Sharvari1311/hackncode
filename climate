@@ -1,3 +1,4 @@
+
 <html>
 
 <head>
@@ -589,6 +590,7 @@
 
 <body onload="initial()">
     <nav>
+        <img src="img/logo.png" width="234.5" height="30">
         <a style="grid-area: home;">Home</a>
         <a style="grid-area: topic;">Topics</a>
         <a style="grid-area: feedback;">Feedback</a>
@@ -709,17 +711,17 @@
     <div id="whatis">
         <h1 class=''>What is Climate Change?</h1>
         <div id="bubbles">
-            <div href="#evidence">
-                <h2>Evidence</h2>
+            <div>
+                <a href="#evidence" style="color: white;"><h2>Evidence</h2></a>
             </div>
-            <div href="#causes">
-                <h2>Causes</h2>
+            <div>
+                <a href="#causes" style="color: white;"><h2>Causes</h2></a>
             </div>
-            <div href="effects">
-                <h2>Effects</h2>
+            <div>
+                <a href="#effects" style="color: white;"><h2>Effects</h2></a>
             </div>
-            <div href="solutions">
-                <h2>Solutions</h2>
+            <div>
+                <a href="#solutions" style="color: white;"><h2>Solutions</h2></a>
             </div>
         </div>
     </div>
@@ -758,7 +760,7 @@
         activity is increasing more than 250 times faster than it did from natural sources after the last Ice Age
         </p>
     </div>
-    <img src="\img\effects.gif">
+    <img src="img\effects.gif">
     </div> 
 </div> 
         <br>
@@ -793,7 +795,7 @@
         Chlorofluorocarbons (CFCs). Synthetic compounds entirely of industrial origin used in a number of applications,
         but now largely regulated in production and release to the atmosphere by international agreement for their
         ability to contribute to destruction of the ozone layer. They are also greenhouse gases</p></div>
-        <img src="\img\causes.gif"> 
+        <img src="img\causes.gif"> 
         </div>
         <br>
         <br>
@@ -821,7 +823,7 @@
 
         "Taken as a whole," the IPCC states, "the range of published evidence indicates that the net damage costs of
         climate change are likely to be significant and to increase over time.</p></div>
-        <img src="\img\polarbear.gif">
+        <img src="img\polarbear.gif">
     </div>
     <br><br>
     <div class="right darkjumbo" id="solutions"><b><h3>Solution</h3></b>
@@ -837,7 +839,7 @@
         more sustainable future.
         <br>
         <br></p>
-        </div><img src="\img\solns.jpg" height="300"></div>
+        </div><img src="img\solns.jpg" height="300"></div>
     </div>
     <br><br>
     <div><div>
